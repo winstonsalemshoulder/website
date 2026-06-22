@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Winston Salem Shoulder — Dr. S. Bradley Winter, MD</title>
+<meta name="description" content="Dr. S. Bradley Winter, MD — Board-certified orthopedic surgeon with fellowship training in sports medicine and shoulder reconstruction. Serving Winston-Salem and Clemmons, NC.">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0A1628; --navy-mid: #0F2040; --steel: #1E4A8C;
+    --accent: #2E8FE0; --accent-light: #5AAEE8;
+    --white: #F8F9FC; --muted: #8A96A8; --text: #1A2233;
+    --line: rgba(255,255,255,0.08);
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--text); font-size: 16px; line-height: 1.6; overflow-x: hidden; }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,22,40,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); padding: 0 2rem; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.2rem; color: #fff; letter-spacing: 0.04em; text-transform: uppercase; line-height: 1.1; }
+  .nav-logo span { display: block; font-size: 0.62rem; font-weight: 400; color: var(--accent); letter-spacing: 0.14em; text-transform: uppercase; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-cta { background: var(--accent); color: #fff !important; padding: 0.45rem 1.1rem; border-radius: 4px; font-weight: 600 !important; }
+  .nav-cta:hover { background: var(--accent-light) !important; }
+
+  .hero { min-height: 100vh; background: var(--navy); display: flex; align-items: center; position: relative; overflow: hidden; padding: 7rem 2rem 4rem; }
+  .hero-grid-lines { position: absolute; inset: 0; background-image: linear-gradient(rgba(46,143,224,0.055) 1px, transparent 1px), linear-gradient(90deg, rgba(46,143,224,0.055) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; }
+  .hero-accent-bar { position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--accent); }
+  .hero-shoulder-svg { position: absolute; right: 4%; top: 50%; transform: translateY(-50%); width: 42%; max-width: 500px; opacity: 0.12; pointer-events: none; }
+  .hero-content { position: relative; z-index: 2; max-width: 680px; }
+  .hero-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; font-weight: 600; color: var(--accent); letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 1.25rem; }
+  .hero h1 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 800; color: #fff; line-height: 0.95; letter-spacing: -0.01em; text-transform: uppercase; margin-bottom: 1.5rem; }
+  .hero h1 em { font-style: normal; color: var(--accent); }
+  .hero-desc { font-size: 1.05rem; color: rgba(255,255,255,0.58); max-width: 480px; line-height: 1.7; margin-bottom: 2.5rem; }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary { background: var(--accent); color: #fff; padding: 0.85rem 2rem; border-radius: 4px; font-weight: 600; font-size: 0.88rem; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; display: inline-block; }
+  .btn-primary:hover { background: var(--accent-light); }
+  .btn-ghost { border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.8); padding: 0.85rem 2rem; border-radius: 4px; font-weight: 500; font-size: 0.88rem; letter-spacing: 0.04em; text-decoration: none; transition: border-color 0.2s, color 0.2s; display: inline-block; }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+  .hero-stats { display: flex; gap: 3rem; margin-top: 3.5rem; padding-top: 2.5rem; border-top: 1px solid var(--line); }
+  .hero-stat-num { font-family: 'Barlow Condensed', sans-serif; font-size: 2.6rem; font-weight: 800; color: #fff; line-height: 1; }
+  .hero-stat-label { font-size: 0.7rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.25rem; }
+
+  section { padding: 6rem 2rem; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; font-weight: 600; color: var(--accent); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.75rem; }
+  .section-title { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; text-transform: uppercase; color: var(--navy); line-height: 1; margin-bottom: 1.5rem; }
+  .section-desc { font-size: 1rem; color: #4A5568; max-width: 560px; line-height: 1.75; margin-bottom: 3rem; }
+
+  #about { background: #fff; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; align-items: start; }
+  .about-photo { width: 100%; border-radius: 2px; display: block; aspect-ratio: 3/4; object-fit: cover; object-position: top; }
+  .about-photo-placeholder { background: var(--navy-mid); border-radius: 2px; aspect-ratio: 3/4; display: flex; align-items: flex-end; padding: 2rem; position: relative; overflow: hidden; }
+  .about-photo-bg { position: absolute; inset: 0; opacity: 0.1; }
+  .about-photo-tag { position: relative; z-index: 2; background: var(--accent); color: #fff; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.5rem 1rem; border-radius: 2px; }
+  .rating-badge { display: flex; align-items: center; gap: 0.75rem; margin-top: 1.25rem; padding: 0.75rem 1rem; background: #F0F7FE; border-radius: 4px; border: 1px solid #D0E8F8; }
+  .rating-stars { color: #F5A623; font-size: 1rem; }
+  .rating-text { font-size: 0.85rem; font-weight: 600; color: var(--navy); }
+  .rating-sub { font-size: 0.75rem; color: #6B7A8F; }
+  .doctor-name { font-family: 'Barlow Condensed', sans-serif; font-size: 2.2rem; font-weight: 800; text-transform: uppercase; color: var(--navy); line-height: 1; margin-bottom: 0.4rem; }
+  .doctor-title { font-size: 0.9rem; color: var(--accent); font-weight: 500; letter-spacing: 0.04em; margin-bottom: 1.5rem; }
+  .about-bio { font-size: 0.975rem; color: #4A5568; line-height: 1.78; margin-bottom: 1.25rem; }
+  .credential-group-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin: 1.25rem 0 0.6rem; }
+  .credential-item { display: flex; align-items: flex-start; gap: 1rem; padding: 0.85rem 1.1rem; border: 1px solid #E8ECF2; border-left: 3px solid var(--accent); border-radius: 2px; margin-bottom: 0.6rem; }
+  .credential-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); flex-shrink: 0; margin-top: 5px; }
+  .credential-title { font-weight: 600; font-size: 0.875rem; color: var(--navy); }
+  .credential-sub { font-size: 0.8rem; color: #6B7A8F; margin-top: 0.1rem; }
+  .memberships-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.25rem; }
+  .membership-chip { display: flex; align-items: center; gap: 0.5rem; padding: 0.45rem 0.85rem; background: #EBF5FD; border: 1px solid #C5DFF5; border-radius: 20px; font-size: 0.78rem; font-weight: 500; color: var(--steel); text-decoration: none; transition: background 0.2s; }
+  .membership-chip:hover { background: #D4EBF8; border-color: var(--accent); }
+  .membership-chip-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+  .locations-row { display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap; }
+  .location-chip { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0.9rem; background: #F0F4FA; border-radius: 20px; font-size: 0.8rem; font-weight: 500; color: var(--navy); }
+  .location-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+
+  #conditions { background: #F0F4FA; }
+  .conditions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+  .condition-card { background: #fff; border-radius: 2px; border: 1px solid #E2E8F0; padding: 1.75rem; transition: border-color 0.2s, transform 0.2s; }
+  .condition-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .condition-icon { width: 42px; height: 42px; background: #E8F4FD; border-radius: 2px; display: flex; align-items: center; justify-content: center; font-size: 1.15rem; margin-bottom: 1rem; }
+  .condition-name { font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem; font-weight: 700; text-transform: uppercase; color: var(--navy); letter-spacing: 0.03em; margin-bottom: 0.5rem; }
+  .condition-desc { font-size: 0.84rem; color: #6B7A8F; line-height: 1.6; }
+
+  #procedures { background: var(--navy); }
+  #procedures .section-title { color: #fff; }
+  .procedures-layout { display: grid; grid-template-columns: 1fr 2fr; gap: 3.5rem; align-items: start; }
+  .procedure-tab { padding: 1rem 1.2rem; border-bottom: 1px solid var(--line); cursor: pointer; transition: all 0.15s; display: flex; align-items: center; justify-content: space-between; }
+  .procedure-tab:first-child { border-top: 1px solid var(--line); }
+  .procedure-tab.active { background: rgba(46,143,224,0.12); border-color: transparent; border-left: 3px solid var(--accent); }
+  .procedure-tab-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.95rem; text-transform: uppercase; color: rgba(255,255,255,0.65); letter-spacing: 0.05em; }
+  .procedure-tab.active .procedure-tab-name { color: #fff; }
+  .procedure-arrow { color: var(--accent); font-size: 0.85rem; opacity: 0; transition: opacity 0.15s; }
+  .procedure-tab.active .procedure-arrow { opacity: 1; }
+  .procedure-detail { background: rgba(255,255,255,0.04); border: 1px solid var(--line); border-radius: 2px; padding: 2.25rem; display: none; }
+  .procedure-detail.active { display: block; }
+  .procedure-detail-title { font-family: 'Barlow Condensed', sans-serif; font-size: 1.7rem; font-weight: 800; text-transform: uppercase; color: #fff; margin-bottom: 1rem; }
+  .procedure-detail-desc { color: rgba(255,255,255,0.58); font-size: 0.93rem; line-height: 1.75; margin-bottom: 1.5rem; }
+  .procedure-points { display: flex; flex-direction: column; gap: 0.55rem; }
+  .procedure-point { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.865rem; color: rgba(255,255,255,0.68); }
+  .procedure-point::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; margin-top: 6px; }
+
+  .testimonial-band { background: #F0F4FA; padding: 5rem 2rem; }
+  .testimonial-inner { max-width: 700px; margin: 0 auto; text-align: center; }
+  .testimonial-stars { color: #F5A623; font-size: 1.1rem; margin-bottom: 1rem; }
+  .testimonial-quote { font-size: 1.15rem; color: var(--navy); line-height: 1.75; font-style: italic; margin-bottom: 1.5rem; }
+  .testimonial-attr { font-size: 0.85rem; color: #6B7A8F; font-weight: 500; }
+
+  #resources { background: #fff; }
+  .resources-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+  .resource-card { border: 1px solid #E2E8F0; border-radius: 2px; padding: 1.75rem; transition: box-shadow 0.2s; }
+  .resource-card:hover { box-shadow: 0 4px 20px rgba(30,74,140,0.08); }
+  .resource-num { font-family: 'Barlow Condensed', sans-serif; font-size: 2.25rem; font-weight: 800; color: #E0ECF8; line-height: 1; margin-bottom: 0.4rem; }
+  .resource-title { font-family: 'Barlow Condensed', sans-serif; font-size: 1.05rem; font-weight: 700; text-transform: uppercase; color: var(--navy); letter-spacing: 0.04em; margin-bottom: 0.65rem; }
+  .resource-desc { font-size: 0.85rem; color: #6B7A8F; line-height: 1.65; margin-bottom: 1.2rem; }
+  .resource-link { font-size: 0.78rem; font-weight: 600; color: var(--accent); text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; }
+  .resource-link:hover { color: var(--steel); }
+
+  /* ── REHAB PROTOCOLS SECTION ── */
+  #protocols { background: #F0F4FA; padding: 6rem 2rem; }
+  .protocol-tabs { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+  .proto-tab-btn {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.78rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 0.45rem 1rem; border-radius: 20px; cursor: pointer; border: 1.5px solid #CBD5E0;
+    background: #fff; color: #4A5568; transition: all 0.15s;
+  }
+  .proto-tab-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .proto-tab-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+  .protocol-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
+  .protocol-card {
+    background: #fff; border: 1px solid #E2E8F0; border-radius: 2px; padding: 1.4rem 1.5rem;
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .protocol-card:hover { border-color: var(--accent); box-shadow: 0 3px 14px rgba(30,74,140,0.07); }
+  .protocol-card[hidden] { display: none; }
+  .proto-card-left { display: flex; align-items: center; gap: 1rem; }
+  .proto-icon {
+    width: 40px; height: 40px; border-radius: 2px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
+  }
+  .proto-icon.surgical { background: #E8F4FD; }
+  .proto-icon.nonop    { background: #EDF7F0; }
+  .proto-card-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.95rem; text-transform: uppercase; color: var(--navy); letter-spacing: 0.03em; line-height: 1.2; }
+  .proto-card-tag {
+    display: inline-block; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; padding: 0.2rem 0.55rem; border-radius: 10px; margin-top: 0.35rem;
+  }
+  .tag-surgical { background: #E8F4FD; color: var(--steel); }
+  .tag-nonop    { background: #EDF7F0; color: #2E7D52; }
+  .download-btn {
+    display: flex; align-items: center; gap: 0.4rem; flex-shrink: 0;
+    background: var(--navy); color: #fff; text-decoration: none;
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.78rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 0.5rem 0.9rem; border-radius: 4px; transition: background 0.2s;
+  }
+  .download-btn:hover { background: var(--accent); }
+  .download-btn svg { width: 13px; height: 13px; flex-shrink: 0; }
+  .protocol-note { margin-top: 2rem; padding: 1rem 1.25rem; background: #fff; border: 1px solid #E2E8F0; border-left: 3px solid #F5A623; border-radius: 2px; font-size: 0.85rem; color: #6B7A8F; line-height: 1.6; }
+
+  .cta-band { background: var(--accent); padding: 4rem 2rem; text-align: center; }
+  .cta-band h2 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(1.75rem, 3.5vw, 2.75rem); font-weight: 800; text-transform: uppercase; color: #fff; margin-bottom: 0.75rem; }
+  .cta-band p { color: rgba(255,255,255,0.82); font-size: 0.95rem; margin-bottom: 2rem; }
+  .btn-white { background: #fff; color: var(--accent); padding: 0.85rem 2.5rem; border-radius: 4px; font-weight: 700; font-size: 0.9rem; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; display: inline-block; }
+
+  footer { background: var(--navy); color: rgba(255,255,255,0.4); padding: 2.5rem 2rem; font-size: 0.8rem; border-top: 1px solid var(--line); }
+  .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+  footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+
+  @media (max-width: 900px) {
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .procedures-layout { grid-template-columns: 1fr; }
+    .hero-shoulder-svg { width: 80%; right: -20%; opacity: 0.06; }
+    .nav-links { display: none; }
+    .hero-stats { gap: 1.75rem; }
+    .protocol-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Winston Salem Shoulder<span>Dr. S. Bradley Winter, MD</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#conditions">Conditions</a></li>
+    <li><a href="#procedures">Procedures</a></li>
+    <li><a href="#resources">Resources</a></li>
+    <li><a href="https://my.orthocarolina.com/mychart/openscheduling/standalone?id=960&vt=407&linksource=providers" target="_blank" class="nav-cta">Request Appointment</a></li>
+  </ul>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-grid-lines"></div>
+  <div class="hero-accent-bar"></div>
+  <svg class="hero-shoulder-svg" viewBox="0 0 500 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M250 580 L240 350 Q235 300 220 260" stroke="#2E8FE0" stroke-width="8" stroke-linecap="round"/>
+    <path d="M250 580 L260 350 Q265 300 280 260" stroke="#2E8FE0" stroke-width="8" stroke-linecap="round"/>
+    <ellipse cx="240" cy="220" rx="55" ry="58" stroke="#2E8FE0" stroke-width="4"/>
+    <ellipse cx="240" cy="220" rx="30" ry="32" stroke="#2E8FE0" stroke-width="2" stroke-dasharray="6 4"/>
+    <path d="M180 180 Q160 210 162 245 Q163 270 185 285" stroke="#2E8FE0" stroke-width="5" stroke-linecap="round"/>
+    <path d="M178 178 Q170 175 168 168 Q166 158 175 152" stroke="#2E8FE0" stroke-width="3"/>
+    <path d="M175 152 Q155 130 145 100 Q135 70 150 50 Q165 30 200 40 Q230 48 240 60" stroke="#2E8FE0" stroke-width="4" stroke-linecap="round"/>
+    <path d="M240 60 Q270 50 300 60 Q330 72 340 100 Q350 130 330 155 Q310 178 290 190" stroke="#2E8FE0" stroke-width="4" stroke-linecap="round"/>
+    <path d="M290 190 Q270 210 260 240" stroke="#2E8FE0" stroke-width="3"/>
+    <path d="M100 120 Q140 100 175 110 Q195 115 200 130" stroke="#2E8FE0" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="175" cy="110" r="8" stroke="#2E8FE0" stroke-width="2.5" fill="none"/>
+    <path d="M195 175 Q215 160 240 162" stroke="#2E8FE0" stroke-width="2" stroke-dasharray="4 3" opacity="0.7"/>
+    <path d="M190 200 Q215 195 235 198" stroke="#2E8FE0" stroke-width="2" stroke-dasharray="4 3" opacity="0.7"/>
+    <path d="M195 225 Q218 228 238 232" stroke="#2E8FE0" stroke-width="2" stroke-dasharray="4 3" opacity="0.7"/>
+    <line x1="175" y1="108" x2="130" y2="80" stroke="#2E8FE0" stroke-width="1" opacity="0.5"/>
+    <circle cx="130" cy="80" r="2" fill="#2E8FE0" opacity="0.5"/>
+    <line x1="162" y1="245" x2="100" y2="260" stroke="#2E8FE0" stroke-width="1" opacity="0.5"/>
+    <circle cx="100" cy="260" r="2" fill="#2E8FE0" opacity="0.5"/>
+  </svg>
+  <div class="hero-content container">
+    <p class="hero-eyebrow">Winston-Salem, North Carolina &mdash; OrthoCarolina</p>
+    <h1>Precision Care<br>for the <em>Shoulder</em></h1>
+    <p class="hero-desc">Fellowship-trained in sports medicine and shoulder reconstruction. Board-certified orthopedic surgery &mdash; focused exclusively on getting you back to the life you love.</p>
+    <div class="hero-actions">
+      <a href="https://my.orthocarolina.com/mychart/openscheduling/standalone?id=960&vt=407&linksource=providers" target="_blank" class="btn-primary">Schedule an Appointment</a>
+      <a href="#about" class="btn-ghost">Meet Dr. Winter</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="hero-stat-num">4.9&#9733;</div><div class="hero-stat-label">Patient Rating</div></div>
+      <div><div class="hero-stat-num">Fellowship</div><div class="hero-stat-label">Trained</div></div>
+      <div><div class="hero-stat-num">560+</div><div class="hero-stat-label">Patient Reviews</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <img src="https://www.orthocarolina.com/imagecache/compReg/600x0_winter_brad.webp" alt="Dr. S. Bradley Winter, MD" class="about-photo" onerror="this.style.display='none'; document.getElementById('photo-fallback').style.display='flex';">
+        <div class="about-photo-placeholder" id="photo-fallback" style="display:none;">
+          <svg class="about-photo-bg" viewBox="0 0 300 400" fill="none"><ellipse cx="150" cy="160" rx="80" ry="85" stroke="white" stroke-width="3"/><path d="M150 240 L140 380 M150 240 L160 380" stroke="white" stroke-width="6" stroke-linecap="round"/></svg>
+          <div class="about-photo-tag">Dr. S. Bradley Winter, MD</div>
+        </div>
+        <div class="rating-badge">
+          <div><div class="rating-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rating-text">4.9 out of 5</div></div>
+          <div class="rating-sub">Based on 560+ verified patient reviews</div>
+        </div>
+      </div>
+      <div>
+        <p class="section-eyebrow">About Dr. Winter</p>
+        <div class="doctor-name">S. Bradley<br>Winter, MD</div>
+        <div class="doctor-title">Orthopedic Surgery &middot; Sports Medicine &middot; Shoulder Reconstruction</div>
+        <p class="about-bio">Dr. S. Bradley Winter is a board-certified orthopedic surgeon with fellowship training in sports medicine and shoulder reconstruction through the Steadman Hawkins Clinic of the Carolinas &mdash; one of the most respected orthopedic programs in the country.</p>
+        <p class="about-bio">His practice is focused exclusively on shoulder pathology, from rotator cuff tears and instability to complex shoulder replacement and revision surgery. Dr. Winter sees patients at OrthoCarolina&rsquo;s Winston-Salem and Clemmons locations, serving the entire Piedmont Triad.</p>
+        <div class="credential-group-label">Education</div>
+        <div class="credential-item"><div class="credential-dot"></div><div><div class="credential-title">Undergraduate &mdash; Vanderbilt University</div><div class="credential-sub">Bachelor of Arts</div></div></div>
+        <div class="credential-item"><div class="credential-dot"></div><div><div class="credential-title">Medical Degree &mdash; UT Health Science Center, Houston</div><div class="credential-sub">University of Texas Health Science Center at Houston</div></div></div>
+        <div class="credential-group-label">Residency &amp; Fellowship</div>
+        <div class="credential-item"><div class="credential-dot"></div><div><div class="credential-title">Orthopedic Surgery Residency &mdash; Wake Forest Baptist Medical Center</div><div class="credential-sub">Winston-Salem, North Carolina</div></div></div>
+        <div class="credential-item"><div class="credential-dot"></div><div><div class="credential-title">Fellowship &mdash; Sports Medicine &amp; Shoulder Reconstruction</div><div class="credential-sub">Steadman Hawkins Clinic of the Carolinas</div></div></div>
+        <div class="credential-group-label">Board Certification</div>
+        <div class="credential-item"><div class="credential-dot"></div><div><div class="credential-title">Board Certified &mdash; Orthopedic Surgery</div><div class="credential-sub">American Board of Orthopaedic Surgery</div></div></div>
+        <div class="credential-group-label">Professional Memberships</div>
+        <div class="memberships-row">
+          <a href="https://ases-assn.org" target="_blank" class="membership-chip"><span class="membership-chip-dot"></span>American Shoulder &amp; Elbow Surgeons</a>
+          <span class="membership-chip"><span class="membership-chip-dot"></span>American Academy of Orthopaedic Surgeons</span>
+          <span class="membership-chip"><span class="membership-chip-dot"></span>American Orthopaedic Association</span>
+          <span class="membership-chip"><span class="membership-chip-dot"></span>NC Medical Society</span>
+        </div>
+        <div class="locations-row">
+          <div class="location-chip"><div class="location-dot"></div>Winston-Salem &mdash; 170 Kimel Park Dr</div>
+          <div class="location-chip"><div class="location-dot"></div>Clemmons &mdash; 3311 Jessie Village Dr</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="conditions">
+  <div class="container">
+    <p class="section-eyebrow">Conditions Treated</p>
+    <h2 class="section-title">What We Treat</h2>
+    <p class="section-desc">A focused shoulder practice means deeper expertise. Every condition below falls within Dr. Winter&rsquo;s subspecialty training.</p>
+    <div class="conditions-grid">
+      <div class="condition-card"><div class="condition-icon">&#x1F504;</div><div class="condition-name">Rotator Cuff Tears</div><div class="condition-desc">Partial and full-thickness tears of the supraspinatus, infraspinatus, subscapularis, or teres minor tendons causing pain, weakness, and limited motion.</div></div>
+      <div class="condition-card"><div class="condition-icon">&#x26A1;</div><div class="condition-name">Shoulder Instability</div><div class="condition-desc">Recurrent dislocations, subluxations, and labral pathology including Bankart lesions and Hill-Sachs defects from traumatic or atraumatic causes.</div></div>
+      <div class="condition-card"><div class="condition-icon">&#x1F517;</div><div class="condition-name">AC Joint Injuries</div><div class="condition-desc">Acromioclavicular separations and chronic AC arthritis from falls, direct trauma, or cumulative wear &mdash; common in active and athletic patients.</div></div>
+      <div class="condition-card"><div class="condition-icon">&#x1F9B4;</div><div class="condition-name">Shoulder Arthritis</div><div class="condition-desc">Glenohumeral osteoarthritis, post-traumatic arthritis, avascular necrosis, and inflammatory arthritis causing progressive joint destruction and pain.</div></div>
+      <div class="condition-card"><div class="condition-icon">&#x2744;&#xFE0F;</div><div class="condition-name">Frozen Shoulder</div><div class="condition-desc">Adhesive capsulitis causing progressive stiffness and pain across all planes of motion, often following injury, surgery, or prolonged immobilization.</div></div>
+      <div class="condition-card"><div class="condition-icon">&#x1F4CC;</div><div class="condition-name">SLAP &amp; Labral Tears</div><div class="condition-desc">Superior labrum anterior-to-posterior tears frequently seen in overhead athletes and throwing sports, producing deep aching and mechanical symptoms.</div></div>
+      <div class="condition-card"><div class="condition-icon">&#x1F4AA;</div><div class="condition-name">Biceps Pathology</div><div class="condition-desc">Biceps tendon tears, tendinitis, and SLAP-associated biceps lesions &mdash; often treated concurrently with rotator cuff or labral procedures.</div></div>
+      <div class="condition-card"><div class="condition-icon">&#x1F3C3;</div><div class="condition-name">Sports Injuries</div><div class="condition-desc">Acute and overuse shoulder injuries in athletes of all levels &mdash; from weekend warriors to competitive and professional athletes seeking return-to-sport care.</div></div>
+      <div class="condition-card"><div class="condition-icon">&#x1F529;</div><div class="condition-name">Failed Prior Surgery</div><div class="condition-desc">Complex revision cases following prior shoulder surgery including failed rotator cuff repairs, instability procedures, and shoulder replacement complications.</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="procedures">
+  <div class="container">
+    <p class="section-eyebrow" style="color:#5AAEE8;">Surgical Procedures</p>
+    <h2 class="section-title">How We Treat It</h2>
+    <p class="section-desc" style="color:rgba(255,255,255,0.5); margin-bottom:3rem;">From minimally invasive arthroscopy to complex reconstruction, each approach is tailored to your anatomy, activity level, and goals.</p>
+    <div class="procedures-layout">
+      <div id="proc-tabs">
+        <div class="procedure-tab active" onclick="showProc('rotator',this)"><span class="procedure-tab-name">Rotator Cuff Repair</span><span class="procedure-arrow">&rarr;</span></div>
+        <div class="procedure-tab" onclick="showProc('instability',this)"><span class="procedure-tab-name">Instability Surgery</span><span class="procedure-arrow">&rarr;</span></div>
+        <div class="procedure-tab" onclick="showProc('arthroplasty',this)"><span class="procedure-tab-name">Shoulder Replacement</span><span class="procedure-arrow">&rarr;</span></div>
+        <div class="procedure-tab" onclick="showProc('slap',this)"><span class="procedure-tab-name">SLAP &amp; Labral Repair</span><span class="procedure-arrow">&rarr;</span></div>
+        <div class="procedure-tab" onclick="showProc('biceps',this)"><span class="procedure-tab-name">Biceps Tenodesis</span><span class="procedure-arrow">&rarr;</span></div>
+        <div class="procedure-tab" onclick="showProc('revision',this)"><span class="procedure-tab-name">Revision Surgery</span><span class="procedure-arrow">&rarr;</span></div>
+      </div>
+      <div>
+        <div class="procedure-detail active" id="proc-rotator">
+          <div class="procedure-detail-title">Rotator Cuff Repair</div>
+          <div class="procedure-detail-desc">Arthroscopic rotator cuff repair restores the torn tendon back to its footprint on the greater tuberosity using suture anchors. Most repairs are performed entirely through small portals, minimizing soft tissue disruption and accelerating recovery.</div>
+          <div class="procedure-points">
+            <div class="procedure-point">Single-row, double-row, or transosseous-equivalent constructs based on tear size and tissue quality</div>
+            <div class="procedure-point">Concurrent biceps tenodesis or tenotomy when indicated</div>
+            <div class="procedure-point">Subacromial decompression and bursectomy as needed</div>
+            <div class="procedure-point">Sling immobilization typically 4&ndash;6 weeks post-operatively</div>
+            <div class="procedure-point">Return to full activity 4&ndash;9 months depending on tear complexity</div>
+          </div>
+        </div>
+        <div class="procedure-detail" id="proc-instability">
+          <div class="procedure-detail-title">Instability Surgery</div>
+          <div class="procedure-detail-desc">Arthroscopic Bankart repair reconstructs the torn anterior labrum and capsulolabral complex using suture anchors. For patients with significant bone loss, a Latarjet or bony Bankart procedure may be required to restore stability.</div>
+          <div class="procedure-points">
+            <div class="procedure-point">Arthroscopic Bankart repair for soft tissue instability</div>
+            <div class="procedure-point">Remplissage for engaging Hill-Sachs lesions</div>
+            <div class="procedure-point">Latarjet coracoid transfer for glenoid bone loss greater than 20%</div>
+            <div class="procedure-point">Capsular plication for multidirectional instability</div>
+            <div class="procedure-point">Return to contact sports typically 5&ndash;7 months</div>
+          </div>
+        </div>
+        <div class="procedure-detail" id="proc-arthroplasty">
+          <div class="procedure-detail-title">Shoulder Replacement</div>
+          <div class="procedure-detail-desc">Total shoulder arthroplasty replaces the arthritic ball and socket with prosthetic components to restore pain-free motion. Reverse total shoulder arthroplasty changes the joint geometry, enabling the deltoid to compensate when the rotator cuff is irreparable.</div>
+          <div class="procedure-points">
+            <div class="procedure-point">Anatomic total shoulder for glenohumeral arthritis with intact rotator cuff</div>
+            <div class="procedure-point">Reverse total shoulder for cuff tear arthropathy or massive irreparable tears</div>
+            <div class="procedure-point">Humeral head resurfacing for younger, active patients</div>
+            <div class="procedure-point">Hemiarthroplasty in selected fracture or avascular necrosis cases</div>
+            <div class="procedure-point">Most patients return to daily activities within 3&ndash;4 months</div>
+          </div>
+        </div>
+        <div class="procedure-detail" id="proc-slap">
+          <div class="procedure-detail-title">SLAP &amp; Labral Repair</div>
+          <div class="procedure-detail-desc">Superior labral tears are repaired arthroscopically by reattaching the labrum to the glenoid rim with suture anchors. In older patients or those with concurrent biceps pathology, biceps tenodesis is often preferred over SLAP repair.</div>
+          <div class="procedure-points">
+            <div class="procedure-point">SLAP repair for throwers and high-demand overhead athletes</div>
+            <div class="procedure-point">Biceps tenodesis as the preferred alternative in appropriate patients</div>
+            <div class="procedure-point">Posterior labral repair for posterior instability patterns</div>
+            <div class="procedure-point">Overhead athletes return to sport: typically 6&ndash;9 months</div>
+          </div>
+        </div>
+        <div class="procedure-detail" id="proc-biceps">
+          <div class="procedure-detail-title">Biceps Tenodesis</div>
+          <div class="procedure-detail-desc">Biceps tenodesis relocates the long head of the biceps tendon from inside the shoulder joint to the proximal humerus, eliminating the painful intra-articular portion. Commonly performed alongside rotator cuff repair or as a standalone procedure.</div>
+          <div class="procedure-points">
+            <div class="procedure-point">Arthroscopic or mini-open technique based on anatomy and surgeon preference</div>
+            <div class="procedure-point">Subpectoral tenodesis for optimal biomechanical positioning</div>
+            <div class="procedure-point">Reliably eliminates bicipital groove pain and anterior shoulder aching</div>
+            <div class="procedure-point">Return to unrestricted activity typically 3&ndash;5 months</div>
+          </div>
+        </div>
+        <div class="procedure-detail" id="proc-revision">
+          <div class="procedure-detail-title">Revision Surgery</div>
+          <div class="procedure-detail-desc">Failed shoulder surgery requires meticulous assessment of the prior repair, remaining tissue quality, and underlying biomechanical factors. Dr. Winter&rsquo;s fellowship training in complex reconstruction prepares him for cases others may not take on.</div>
+          <div class="procedure-points">
+            <div class="procedure-point">Revision rotator cuff repair with graft augmentation when needed</div>
+            <div class="procedure-point">Revision instability surgery with or without bone grafting</div>
+            <div class="procedure-point">Revision and conversion shoulder arthroplasty</div>
+            <div class="procedure-point">Nerve evaluation and management in complex cases</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="testimonial-band">
+  <div class="testimonial-inner">
+    <p class="section-eyebrow" style="text-align:center;">Patient Testimonials</p>
+    <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+    <p class="testimonial-quote">&ldquo;Dr. Winter is a very gentle and caring physician. He listens to your concern and gives you the professional advice needed to make sound decisions. And if you&rsquo;re in pain he tries to work you in as soon as possible. His staff is also wonderful and empathetic to your concern.&rdquo;</p>
+    <div class="testimonial-attr">&mdash; Belinda P. &middot; Verified OrthoCarolina Patient</div>
+  </div>
+</div>
+
+<section id="resources">
+  <div class="container">
+    <p class="section-eyebrow">Patient Resources</p>
+    <h2 class="section-title">Preparing for Your Care</h2>
+    <p class="section-desc">Knowledge is part of recovery. These resources help you understand your diagnosis and what to expect at every step of your journey with Dr. Winter.</p>
+    <div class="resources-grid">
+      <div class="resource-card"><div class="resource-num">01</div><div class="resource-title">Your First Visit</div><div class="resource-desc">What to bring, what to expect during your consultation, and how a diagnosis is reached through exam and imaging.</div><a class="resource-link" href="https://www.orthocarolina.com/physicians/s-bradley-winter-md" target="_blank">Learn more &rarr;</a></div>
+      <div class="resource-card"><div class="resource-num">02</div><div class="resource-title">Understanding Your MRI</div><div class="resource-desc">A plain-language guide to common shoulder MRI findings &mdash; what &ldquo;full-thickness tear,&rdquo; &ldquo;labral fraying,&rdquo; and &ldquo;bursitis&rdquo; actually mean.</div><a class="resource-link" href="https://orthoinfo.aaos.org/en/diseases--conditions/shoulder-pain-and-common-shoulder-problems/" target="_blank">Learn more &rarr;</a></div>
+      <div class="resource-card"><div class="resource-num">03</div><div class="resource-title">Pre-Surgery Checklist</div><div class="resource-desc">Step-by-step preparation: medications to pause, home setup, anesthesia considerations, and what to arrange before your shoulder surgery.</div><a class="resource-link" href="https://www.orthocarolina.com/patient-resources" target="_blank">Learn more &rarr;</a></div>
+      <div class="resource-card"><div class="resource-num">04</div><div class="resource-title">Recovery &amp; Rehab</div><div class="resource-desc">Typical recovery timelines for common shoulder procedures &mdash; from immediate post-op protection through strengthening and return to sport. Download condition-specific protocols below.</div><a class="resource-link" href="#protocols">View Protocols &darr;</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- REHAB PROTOCOLS -->
+<section id="protocols">
+  <div class="container">
+    <p class="section-eyebrow">Rehabilitation Protocols</p>
+    <h2 class="section-title">Post-Operative &amp; Rehab Protocols</h2>
+    <p class="section-desc">Download condition-specific rehabilitation protocols to share with your physical therapist. Each protocol reflects Dr. Winter&rsquo;s preferred approach and may be individualized based on your surgery.</p>
+
+    <div class="protocol-tabs">
+      <button class="proto-tab-btn active" onclick="filterProtos('all', this)">All Protocols</button>
+      <button class="proto-tab-btn" onclick="filterProtos('surgical', this)">Post-Surgical</button>
+      <button class="proto-tab-btn" onclick="filterProtos('nonop', this)">Non-Operative</button>
+    </div>
+
+    <div class="protocol-grid">
+
+      <div class="protocol-card" data-type="surgical">
+        <div class="proto-card-left">
+          <div class="proto-icon surgical">&#x1F504;</div>
+          <div>
+            <div class="proto-card-title">Rotator Cuff Repair</div>
+            <span class="proto-card-tag tag-surgical">Post-Surgical</span>
+          </div>
+        </div>
+        <a href="protocols/rotator-cuff-repair.pdf" download class="download-btn">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 2v8M5 7l3 3 3-3M2 12v1a1 1 0 001 1h10a1 1 0 001-1v-1"/></svg>
+          PDF
+        </a>
+      </div>
+
+      <div class="protocol-card" data-type="surgical">
+        <div class="proto-card-left">
+          <div class="proto-icon surgical">&#x26A1;</div>
+          <div>
+            <div class="proto-card-title">Shoulder Instability Surgery</div>
+            <span class="proto-card-tag tag-surgical">Post-Surgical</span>
+          </div>
+        </div>
+        <a href="protocols/shoulder-instability.pdf" download class="download-btn">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 2v8M5 7l3 3 3-3M2 12v1a1 1 0 001 1h10a1 1 0 001-1v-1"/></svg>
+          PDF
+        </a>
+      </div>
+
+      <div class="protocol-card" data-type="surgical">
+        <div class="proto-card-left">
+          <div class="proto-icon surgical">&#x1F9B4;</div>
+          <div>
+            <div class="proto-card-title">Shoulder Replacement (TSA / RTSA)</div>
+            <span class="proto-card-tag tag-surgical">Post-Surgical</span>
+          </div>
+        </div>
+        <a href="protocols/shoulder-replacement.pdf" download class="download-btn">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 2v8M5 7l3 3 3-3M2 12v1a1 1 0 001 1h10a1 1 0 001-1v-1"/></svg>
+          PDF
+        </a>
+      </div>
+
+      <div class="protocol-card" data-type="surgical">
+        <div class="proto-card-left">
+          <div class="proto-icon surgical">&#x1F4CC;</div>
+          <div>
+            <div class="proto-card-title">SLAP &amp; Labral Repair</div>
+            <span class="proto-card-tag tag-surgical">Post-Surgical</span>
+          </div>
+        </div>
+        <a href="protocols/slap-labral-repair.pdf" download class="download-btn">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 2v8M5 7l3 3 3-3M2 12v1a1 1 0 001 1h10a1 1 0 001-1v-1"/></svg>
+          PDF
+        </a>
+      </div>
+
+      <div class="protocol-card" data-type="surgical">
+        <div class="proto-card-left">
+          <div class="proto-icon surgical">&#x1F4AA;</div>
+          <div>
+            <div class="proto-card-title">Biceps Tenodesis</div>
+            <span class="proto-card-tag tag-surgical">Post-Surgical</span>
+          </div>
+        </div>
+        <a href="protocols/biceps-tenodesis.pdf" download class="download-btn">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 2v8M5 7l3 3 3-3M2 12v1a1 1 0 001 1h10a1 1 0 001-1v-1"/></svg>
+          PDF
+        </a>
+      </div>
+
+      <div class="protocol-card" data-type="nonop">
+        <div class="proto-card-left">
+          <div class="proto-icon nonop">&#x1F504;</div>
+          <div>
+            <div class="proto-card-title">Rotator Cuff Tears &mdash; Conservative</div>
+            <span class="proto-card-tag tag-nonop">Non-Operative</span>
+          </div>
+        </div>
+        <a href="protocols/rotator-cuff-tears.pdf" download class="download-btn">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 2v8M5 7l3 3 3-3M2 12v1a1 1 0 001 1h10a1 1 0 001-1v-1"/></svg>
+          PDF
+        </a>
+      </div>
+
+      <div class="protocol-card" data-type="nonop">
+        <div class="proto-card-left">
+          <div class="proto-icon nonop">&#x26A1;</div>
+          <div>
+            <div class="proto-card-title">Shoulder Instability &mdash; Conservative</div>
+            <span class="proto-card-tag tag-nonop">Non-Operative</span>
+          </div>
+        </div>
+        <a href="protocols/shoulder-instability-nonop.pdf" download class="download-btn">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 2v8M5 7l3 3 3-3M2 12v1a1 1 0 001 1h10a1 1 0 001-1v-1"/></svg>
+          PDF
+        </a>
+      </div>
+
+      <div class="protocol-card" data-type="nonop">
+        <div class="proto-card-left">
+          <div class="proto-icon nonop">&#x1F9B4;</div>
+          <div>
+            <div class="proto-card-title">Shoulder Arthritis &mdash; Conservative &amp; Post-Op</div>
+            <span class="proto-card-tag tag-nonop">Non-Operative</span>
+          </div>
+        </div>
+        <a href="protocols/shoulder-arthritis.pdf" download class="download-btn">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 2v8M5 7l3 3 3-3M2 12v1a1 1 0 001 1h10a1 1 0 001-1v-1"/></svg>
+          PDF
+        </a>
+      </div>
+
+      <div class="protocol-card" data-type="nonop">
+        <div class="proto-card-left">
+          <div class="proto-icon nonop">&#x2744;&#xFE0F;</div>
+          <div>
+            <div class="proto-card-title">Frozen Shoulder (Adhesive Capsulitis)</div>
+            <span class="proto-card-tag tag-nonop">Non-Operative</span>
+          </div>
+        </div>
+        <a href="protocols/frozen-shoulder.pdf" download class="download-btn">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 2v8M5 7l3 3 3-3M2 12v1a1 1 0 001 1h10a1 1 0 001-1v-1"/></svg>
+          PDF
+        </a>
+      </div>
+
+    </div>
+
+    <div class="protocol-note">
+      &#9888;&nbsp; These protocols are general guidelines provided for patient and physical therapist reference. Dr. Winter may modify your protocol based on intraoperative findings, tissue quality, and individual factors. Always follow the specific instructions given at your post-operative visit.
+    </div>
+  </div>
+</section>
+
+<div class="cta-band" id="contact">
+  <div class="container">
+    <h2>Ready to Get Back to Full Strength?</h2>
+    <p>New and current patients can schedule directly through OrthoCarolina&rsquo;s online portal.</p>
+    <a href="https://my.orthocarolina.com/mychart/openscheduling/standalone?id=960&vt=407&linksource=providers" target="_blank" class="btn-white">Schedule with Dr. Winter</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <strong style="color:rgba(255,255,255,0.65); font-family:'Barlow Condensed',sans-serif; font-size:1rem; letter-spacing:0.06em; text-transform:uppercase;">Winston Salem Shoulder</strong><br>
+      Dr. S. Bradley Winter, MD &middot; OrthoCarolina<br>
+      Winston-Salem &amp; Clemmons, NC
+    </div>
+    <div style="text-align:right;">
+      <a href="https://www.winstonsalemshoulder.com">winstonsalemshoulder.com</a><br>
+      <a href="https://www.orthocarolina.com/physicians/s-bradley-winter-md" target="_blank">OrthoCarolina Profile</a><br>
+      &copy; 2026 &middot; All rights reserved
+    </div>
+  </div>
+</footer>
+
+<script>
+function showProc(id, el) {
+  document.querySelectorAll('.procedure-detail').forEach(function(d){ d.classList.remove('active'); });
+  document.querySelectorAll('.procedure-tab').forEach(function(t){ t.classList.remove('active'); });
+  document.getElementById('proc-' + id).classList.add('active');
+  el.classList.add('active');
+}
+function filterProtos(type, btn) {
+  document.querySelectorAll('.proto-tab-btn').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+  document.querySelectorAll('.protocol-card').forEach(function(c){
+    if (type === 'all' || c.dataset.type === type) { c.hidden = false; }
+    else { c.hidden = true; }
+  });
+}
+</script>
+</body>
+</html>
